@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aftab Asghar | Portfolio Preview</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%235C3A21'/><text x='50%' y='63%' font-size='50' font-weight='800' fill='%23FDFBF7' font-family='sans-serif' text-anchor='middle'>AA</text></svg>" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS via CDN for instant browser preview -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            portfolio: {
+              dark: "#3B2314",
+              primary: "#5C3A21",
+              secondary: "#8C5A35",
+              accent: "#C68B59",
+              surface: "#FDFBF7",
+              beige: "#F4EDE4",
+              sand: "#E8DDD0",
+              muted: "#7A685B",
+              card: "#FFFFFF",
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          },
+          boxShadow: {
+            'warm': '0 10px 30px -10px rgba(92, 58, 33, 0.12)',
+            'warm-lg': '0 20px 40px -15px rgba(92, 58, 33, 0.18)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FDFBF7;
+      color: #3B2314;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .glass-nav {
+      background: rgba(253, 251, 247, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .dot-pattern {
+      background-image: radial-gradient(#5C3A21 1.5px, transparent 1.5px);
+      background-size: 16px 16px;
+      opacity: 0.15;
+    }
+    @media print {
+      body { background: white !important; color: black !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+    }
+  </style>
+</head>
+<body class="bg-portfolio-surface text-portfolio-dark selection:bg-portfolio-primary selection:text-white">
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-[#E8DDD0]/80 py-3.5 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
+        
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-portfolio-primary text-portfolio-surface flex items-center justify-center font-bold text-lg shadow-md">
+            AA
+          </div>
+          <div class="flex flex-col">
+            <span class="font-heading font-extrabold text-xl text-portfolio-dark tracking-tight leading-none">
+              Aftab Asghar
+            </span>
+            <span class="text-[11px] font-medium text-portfolio-muted tracking-wider uppercase mt-1">
+              CS Student & Developer
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-1 bg-[#F4EDE4]/70 px-3 py-1.5 rounded-full border border-[#E8DDD0]">
+          <a href="#home" class="px-4 py-1.5 rounded-full text-xs font-semibold text-portfolio-dark hover:bg-portfolio-primary hover:text-white transition-all">Home</a>
+          <a href="#about" class="px-4 py-1.5 rounded-full text-xs font-semibold text-portfolio-dark hover:bg-portfolio-primary hover:text-white transition-all">About</a>
+          <a href="#skills" class="px-4 py-1.5 rounded-full text-xs font-semibold text-portfolio-dark hover:bg-portfolio-primary hover:text-white transition-all">Skills</a>
+          <a href="#projects" class="px-4 py-1.5 rounded-full text-xs font-semibold text-portfolio-dark hover:bg-portfolio-primary hover:text-white transition-all">Projects</a>
+          <a href="#education" class="px-4 py-1.5 rounded-full text-xs font-semibold text-portfolio-dark hover:bg-portfolio-primary hover:text-white transition-all">Education</a>
+          <a href="#hobbies" class="px-4 py-1.5 rounded-full text-xs font-semibold text-portfolio-dark hover:bg-portfolio-primary hover:text-white transition-all">Hobbies</a>
+          <a href="#contact" class="px-4 py-1.5 rounded-full text-xs font-semibold text-portfolio-dark hover:bg-portfolio-primary hover:text-white transition-all">Contact</a>
+        </nav>
+
+        <!-- Right Action Button -->
+        <div class="hidden md:flex items-center gap-3">
+          <button onclick="openCVModal()" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-portfolio-primary text-white hover:bg-portfolio-dark shadow-sm transition-all">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+            <span>Resume / CV</span>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex lg:hidden items-center gap-2">
+          <button onclick="openCVModal()" class="p-2 rounded-lg bg-portfolio-beige text-portfolio-primary border border-portfolio-sand">
+            <i data-lucide="download" class="w-4 h-4"></i>
+          </button>
+          <button id="mobile-menu-btn" class="p-2 rounded-xl bg-portfolio-beige text-portfolio-dark border border-portfolio-sand">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden lg:hidden fixed inset-x-0 top-[65px] bg-[#FDFBF7] border-b border-[#E8DDD0] shadow-xl p-5">
+      <nav class="flex flex-col gap-2">
+        <a href="#home" class="mobile-nav-link px-4 py-2.5 rounded-xl text-sm font-semibold text-portfolio-dark hover:bg-portfolio-beige">Home</a>
+        <a href="#about" class="mobile-nav-link px-4 py-2.5 rounded-xl text-sm font-semibold text-portfolio-dark hover:bg-portfolio-beige">About</a>
+        <a href="#skills" class="mobile-nav-link px-4 py-2.5 rounded-xl text-sm font-semibold text-portfolio-dark hover:bg-portfolio-beige">Skills</a>
+        <a href="#projects" class="mobile-nav-link px-4 py-2.5 rounded-xl text-sm font-semibold text-portfolio-dark hover:bg-portfolio-beige">Projects</a>
+        <a href="#education" class="mobile-nav-link px-4 py-2.5 rounded-xl text-sm font-semibold text-portfolio-dark hover:bg-portfolio-beige">Education</a>
+        <a href="#hobbies" class="mobile-nav-link px-4 py-2.5 rounded-xl text-sm font-semibold text-portfolio-dark hover:bg-portfolio-beige">Hobbies</a>
+        <a href="#contact" class="mobile-nav-link px-4 py-2.5 rounded-xl text-sm font-semibold text-portfolio-dark hover:bg-portfolio-beige">Contact</a>
+        <div class="pt-2 border-t border-portfolio-sand">
+          <button onclick="openCVModal()" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-xs uppercase tracking-wider bg-portfolio-primary text-white">
+            <i data-lucide="download" class="w-4 h-4"></i>
+            <span>View & Download CV</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section id="home" class="relative min-h-[92vh] flex items-center pt-28 pb-16 overflow-hidden">
+    <div class="absolute top-10 right-0 w-96 h-96 bg-[#8C5A35]/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#5C3A21]/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="absolute right-12 top-24 w-32 h-32 dot-pattern hidden lg:block -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Content -->
+        <div class="lg:col-span-7 flex flex-col items-start space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-portfolio-beige border border-portfolio-sand text-portfolio-primary text-xs font-semibold shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-[#8C5A35] animate-pulse"></span>
+            <span>Available for Internships & Projects</span>
+          </div>
+
+          <div class="space-y-2">
+            <span class="text-portfolio-secondary font-semibold text-lg tracking-wide">
+              Welcome to my portfolio
+            </span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-portfolio-dark tracking-tight leading-[1.1]">
+              Hi, I'm <span class="text-portfolio-primary underline decoration-portfolio-accent/40 decoration-4 underline-offset-8">Aftab Asghar</span>
+            </h1>
+            <p className="text-lg sm:text-xl font-medium text-portfolio-secondary pt-1">
+              Undergraduate Computer Science Student | Aspiring Software Developer
+            </p>
+          </div>
+
+          <p class="text-portfolio-muted text-base sm:text-lg leading-relaxed max-w-2xl">
+            Hello! I'm Aftab Asghar, an enthusiastic Computer Science student passionate about programming, software development, and building useful digital solutions. I enjoy learning new technologies, solving problems, and turning ideas into practical projects.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 text-xs font-semibold text-portfolio-dark pt-1">
+            <div class="flex items-center gap-1.5 bg-portfolio-beige/70 px-3 py-1.5 rounded-lg border border-portfolio-sand">
+              <i data-lucide="graduation-cap" class="w-4 h-4 text-portfolio-primary"></i>
+              <span>Riphah International University</span>
+            </div>
+            <div class="flex items-center gap-1.5 bg-portfolio-beige/70 px-3 py-1.5 rounded-lg border border-portfolio-sand">
+              <i data-lucide="map-pin" class="w-4 h-4 text-portfolio-primary"></i>
+              <span>D.I. Khan, Pakistan</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-4 w-full sm:w-auto">
+            <a href="#projects" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-sm bg-portfolio-primary text-white hover:bg-portfolio-dark shadow-warm transition-all transform hover:-translate-y-0.5">
+              <span>View My Projects</span>
+              <i data-lucide="arrow-down" class="w-4 h-4"></i>
+            </a>
+
+            <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-sm bg-portfolio-beige text-portfolio-dark border border-portfolio-sand hover:bg-portfolio-sand/80 transition-all">
+              <span>Contact Me</span>
+              <i data-lucide="send" class="w-4 h-4 text-portfolio-primary"></i>
+            </a>
+
+            <button onclick="openCVModal()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-sm bg-white text-portfolio-primary border-2 border-portfolio-primary/30 hover:border-portfolio-primary hover:bg-portfolio-beige/40 transition-all shadow-sm">
+              <i data-lucide="file-text" class="w-4 h-4 text-portfolio-primary"></i>
+              <span>Download CV</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Profile Frame -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end">
+          <div class="relative w-72 sm:w-80 md:w-96">
+            <div class="absolute -inset-4 bg-gradient-to-tr from-[#5C3A21] to-[#8C5A35] rounded-3xl transform rotate-3 opacity-90 shadow-2xl"></div>
+            
+            <div class="relative bg-[#FDFBF7] p-4 rounded-3xl shadow-xl border border-portfolio-sand">
+              <div id="photo-container" class="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-b from-[#F4EDE4] to-[#E8DDD0] border-4 border-white shadow-inner flex flex-col items-center justify-center p-6 text-center space-y-3">
+                <div class="w-24 h-24 rounded-full bg-portfolio-primary text-portfolio-surface flex items-center justify-center shadow-md border-2 border-white">
+                  <span class="font-heading font-bold text-3xl tracking-wider">AA</span>
+                </div>
+                
+                <div class="space-y-1">
+                  <div class="font-heading font-bold text-portfolio-dark text-base">Aftab Asghar</div>
+                  <div class="text-xs text-portfolio-secondary font-medium">Profile Photograph Slot</div>
+                  <p class="text-[11px] text-portfolio-muted leading-tight">
+                    Add <code class="bg-white/80 px-1 py-0.5 rounded border border-portfolio-sand">profile.jpg</code> or preview your photo below.
+                  </p>
+                </div>
+
+                <label class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-portfolio-primary text-white text-xs font-semibold shadow hover:bg-portfolio-dark transition-colors cursor-pointer">
+                  <i data-lucide="camera" class="w-3.5 h-3.5"></i>
+                  <span>Upload / Set Photo</span>
+                  <input type="file" id="photo-input" accept="image/*" class="hidden">
+                </label>
+              </div>
+
+              <div class="mt-4 p-3 bg-portfolio-beige rounded-xl border border-portfolio-sand flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-lg bg-portfolio-primary text-white flex items-center justify-center font-bold text-xs">CS</div>
+                  <div>
+                    <div class="text-xs font-bold text-portfolio-dark">Computer Science</div>
+                    <div class="text-[10px] text-portfolio-muted">Riphah International Univ.</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-white text-portfolio-primary border border-portfolio-sand">
+                  Undergraduate
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ME ================= -->
+  <section id="about" class="py-20 bg-portfolio-beige/40 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-portfolio-sand text-portfolio-primary text-xs font-bold tracking-wider uppercase mb-3 shadow-sm">
+          <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+          <span>About Me</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-portfolio-dark tracking-tight">
+          Building Foundations in <span class="text-portfolio-primary">Computer Science</span>
+        </h2>
+        <div class="w-16 h-1 bg-portfolio-primary mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch mb-16">
+        <div class="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 shadow-warm border border-portfolio-sand flex flex-col justify-between">
+          <div class="space-y-6">
+            <h3 class="text-2xl font-heading font-bold text-portfolio-dark">
+              Academic Background & Career Passion
+            </h3>
+            <p class="text-portfolio-dark/80 text-base sm:text-lg leading-relaxed">
+              I am an undergraduate Computer Science student at <strong class="text-portfolio-primary">Riphah International University</strong>. I have experience working on academic projects involving programming, databases, mobile application development, and game development. I am continuously improving my technical skills and looking for opportunities to learn, collaborate, and grow as a software developer.
+            </p>
+            <p class="text-portfolio-muted text-sm sm:text-base leading-relaxed">
+              My approach to computing centers around writing clean, readable logic and understanding what happens beneath the abstractions. From implementing match-3 grid physics in C++ to structuring relational schemas for booking systems, I love turning academic concepts into functioning digital tools.
+            </p>
+
+            <div class="pt-2">
+              <div class="text-xs font-bold uppercase tracking-wider text-portfolio-secondary mb-3">Core Focus Areas</div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs font-medium text-portfolio-dark">
+                <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-portfolio-primary"></i> Object-Oriented Programming (OOP)</div>
+                <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-portfolio-primary"></i> Data Structures & Algorithms</div>
+                <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-portfolio-primary"></i> Database Schema & SQL</div>
+                <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-portfolio-primary"></i> Mobile & Web Applications</div>
+                <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-portfolio-primary"></i> Unity Game Physics</div>
+                <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-portfolio-primary"></i> Team Problem Solving</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-portfolio-sand flex items-center justify-between">
+            <div>
+              <span class="text-xs text-portfolio-muted">Current Status</span>
+              <div class="font-bold text-sm text-portfolio-dark">Active Undergraduate Student</div>
+            </div>
+            <div class="text-right">
+              <span class="text-xs text-portfolio-muted">Target Objective</span>
+              <div class="font-bold text-sm text-portfolio-primary">Software Dev Internships & Roles</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 bg-gradient-to-br from-portfolio-primary to-portfolio-dark text-white rounded-3xl p-8 sm:p-10 shadow-warm-lg flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-portfolio-accent mb-6">
+              <i data-lucide="target" class="w-6 h-6"></i>
+            </div>
+            <h4 class="text-xl font-heading font-bold text-white mb-2">Aftab's Academic Profile</h4>
+            <p class="text-white/80 text-sm leading-relaxed mb-6">Bridging theoretical computing principles with hands-on project work.</p>
+            <div class="space-y-4 text-sm">
+              <div class="p-3.5 rounded-xl bg-white/10 border border-white/10">
+                <div class="text-white/60 text-xs">Institution</div>
+                <div class="text-white font-semibold">Riphah International University</div>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white/10 border border-white/10">
+                <div class="text-white/60 text-xs">Degree Program</div>
+                <div class="text-white font-semibold">BS in Computer Science (cont..)</div>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white/10 border border-white/10">
+                <div class="text-white/60 text-xs">Location</div>
+                <div class="text-white font-semibold">D.I. Khan, Khyber Pakhtunkhwa</div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 pt-6 border-t border-white/15 text-xs text-white/70">
+            Passionate about writing clean, reliable code and solving real-world challenges.
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-2xl p-6 border border-portfolio-sand shadow-sm hover:shadow-warm transition-all transform hover:-translate-y-1">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-portfolio-beige text-portfolio-primary flex items-center justify-center">
+              <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-portfolio-beige text-portfolio-secondary">Academics</span>
+          </div>
+          <h4 class="text-lg font-heading font-bold text-portfolio-dark mb-2">Computer Science Student</h4>
+          <p class="text-portfolio-muted text-xs sm:text-sm leading-relaxed">Pursuing BS Computer Science at Riphah International University with core foundations in computing.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-portfolio-sand shadow-sm hover:shadow-warm transition-all transform hover:-translate-y-1">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-portfolio-beige text-portfolio-primary flex items-center justify-center">
+              <i data-lucide="code-2" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-portfolio-beige text-portfolio-secondary">Engineering</span>
+          </div>
+          <h4 class="text-lg font-heading font-bold text-portfolio-dark mb-2">Software Development</h4>
+          <p class="text-portfolio-muted text-xs sm:text-sm leading-relaxed">Hands-on experience building functional projects across desktop systems, mobile apps, and games.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-portfolio-sand shadow-sm hover:shadow-warm transition-all transform hover:-translate-y-1">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-portfolio-beige text-portfolio-primary flex items-center justify-center">
+              <i data-lucide="brain" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-portfolio-beige text-portfolio-secondary">Analytical</span>
+          </div>
+          <h4 class="text-lg font-heading font-bold text-portfolio-dark mb-2">Problem Solving</h4>
+          <p class="text-portfolio-muted text-xs sm:text-sm leading-relaxed">Strong grasp of algorithmic logic, Programming Fundamentals (PF), and Object-Oriented Programming (OOP).</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-portfolio-sand shadow-sm hover:shadow-warm transition-all transform hover:-translate-y-1">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-portfolio-beige text-portfolio-primary flex items-center justify-center">
+              <i data-lucide="sparkles" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-portfolio-beige text-portfolio-secondary">Growth</span>
+          </div>
+          <h4 class="text-lg font-heading font-bold text-portfolio-dark mb-2">Continuous Learning</h4>
+          <p class="text-portfolio-muted text-xs sm:text-sm leading-relaxed">Always excited to explore modern software stacks, industry best practices, and team collaboration.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= TECHNICAL SKILLS ================= -->
+  <section id="skills" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-portfolio-beige border border-portfolio-sand text-portfolio-primary text-xs font-bold tracking-wider uppercase mb-3 shadow-sm">
+          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+          <span>Technical Capabilities</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-portfolio-dark tracking-tight">
+          Technical <span className="text-portfolio-primary">Skills & Tooling</span>
+        </h2>
+        <p class="mt-3 text-portfolio-muted text-sm sm:text-base">
+          Skills developed through Computer Science coursework, project implementations, and focused self-study.
+        </p>
+        <div class="w-16 h-1 bg-portfolio-primary mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- Skills Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Skill 1: C++ -->
+        <div class="bg-white rounded-2xl p-6 border border-portfolio-sand shadow-sm hover:shadow-warm transition-all">
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-portfolio-beige text-portfolio-primary flex items-center justify-center">
+              <i data-lucide="code" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-portfolio-beige text-portfolio-secondary">
+              Intermediate / Academic
+            </span>
+          </div>
+          <h3 class="text-lg font-heading font-bold text-portfolio-dark">C++ Programming</h3>
+          <p class="mt-2 text-portfolio-muted text-xs sm:text-sm leading-relaxed">
+            Core algorithms, pointers, memory concepts, Object-Oriented Programming (OOP), and game logic.
+          </p>
+          <div class="mt-6 pt-4 border-t border-portfolio-sand/60">
+            <div class="flex items-center justify-between text-xs font-semibold mb-1.5">
+              <span class="text-portfolio-secondary">Proficiency Indicator</span>
+              <span class="text-portfolio-primary font-bold">80%</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-portfolio-beige overflow-hidden border border-portfolio-sand/60">
+              <div class="h-full bg-gradient-to-r from-portfolio-secondary to-portfolio-primary rounded-full w-[80%]"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill 2: Java -->
+        <div class="bg-white rounded-2xl p-6 border border-portfolio-sand shadow-sm hover:shadow-warm transition-all">
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-portfolio-beige text-portfolio-primary flex items-center justify-center">
+              <i data-lucide="coffee" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-portfolio-beige text-portfolio-secondary">
+              Intermediate / Academic
+            </span>
+          </div>
+          <h3 class="text-lg font-heading font-bold text-portfolio-dark">Java Programming</h3>
+          <p class="mt-2 text-portfolio-muted text-xs sm:text-sm leading-relaxed">
+            Object-oriented software architecture, class hierarchies, design principles, and desktop applications.
+          </p>
+          <div class="mt-6 pt-4 border-t border-portfolio-sand/60">
+            <div class="flex items-center justify-between text-xs font-semibold mb-1.5">
+              <span class="text-portfolio-secondary">Proficiency Indicator</span>
+              <span class="text-portfolio-primary font-bold">75%</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-portfolio-beige overflow-hidden border border-portfolio-sand/60">
+              <div class="h-full bg-gradient-to-r from-portfolio-secondary to-portfolio-primary rounded-full w-[75%]"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill 3: Python -->
+        <div class="bg-white rounded-2xl p-6 border border-portfolio-sand shadow-sm hover:shadow-warm transition-all">
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-portfolio-beige text-portfolio-primary flex items-center justify-center">
+              <i data-lucide="file-code-2" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-portfolio-beige text-portfolio-secondary">
+              Intermediate / Academic
+            </span>
+          </div>
+          <h3 class="text-lg font-heading font-bold text-portfolio-dark">Python Programming</h3>
+          <p class="mt-2 text-portfolio-muted text-xs sm:text-sm leading-relaxed">
+            Scripting, rapid application prototyping, clean data structures, and algorithmic automation.
+          </p>
+          <div class="mt-6 pt-4 border-t border-portfolio-sand/60">
+            <div class="flex items-center justify-between text-xs font-semibold mb-1.5">
+              <span class="text-portfolio-secondary">Proficiency Indicator</span>
+              <span class="text-portfolio-primary font-bold">78%</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-portfolio-beige overflow-hidden border border-portfolio-sand/60">
+              <div class="h-full bg-gradient-to-r from-portfolio-secondary to-portfolio-primary rounded-full w-[78%]"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill 4: Web Dev -->
+        <div class="bg-white rounded-2xl p-6 border border-portfolio-sand shadow-sm hover:shadow-warm transition-all">
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-portfolio-beige text-portfolio-primary flex items-center justify-center">
+              <i data-lucide="globe" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-portfolio-beige text-portfolio-secondary">
+              Foundational & Responsive
+            </span>
+          </div>
+          <h3 class="text-lg font-heading font-bold text-portfolio-dark">Web Development</h3>
+          <div class="text-xs font-medium text-portfolio-accent">HTML5 & CSS3</div>
+          <p class="mt-2 text-portfolio-muted text-xs sm:text-sm leading-relaxed">
+            Semantic web markup, CSS responsive layouts, styling, modern flexbox/grid, and clean UI structuring.
+          </p>
+          <div class="mt-6 pt-4 border-t border-portfolio-sand/60">
+            <div class="flex items-center justify-between text-xs font-semibold mb-1.5">
+              <span class="text-portfolio-secondary">Proficiency Indicator</span>
+              <span class="text-portfolio-primary font-bold">82%</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-portfolio-beige overflow-hidden border border-portfolio-sand/60">
+              <div class="h-full bg-gradient-to-r from-portfolio-secondary to-portfolio-primary rounded-full w-[82%]"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill 5: Database -->
+        <div class="bg-white rounded-2xl p-6 border border-portfolio-sand shadow-sm hover:shadow-warm transition-all">
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-portfolio-beige text-portfolio-primary flex items-center justify-center">
+              <i data-lucide="database" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-portfolio-beige text-portfolio-secondary">
+              Intermediate / Academic
+            </span>
+          </div>
+          <h3 class="text-lg font-heading font-bold text-portfolio-dark">Database Management</h3>
+          <p class="mt-2 text-portfolio-muted text-xs sm:text-sm leading-relaxed">
+            Relational database concepts, schema design, table relationships, SQL queries, and data integrity.
+          </p>
+          <div class="mt-6 pt-4 border-t border-portfolio-sand/60">
+            <div class="flex items-center justify-between text-xs font-semibold mb-1.5">
+              <span class="text-portfolio-secondary">Proficiency Indicator</span>
+              <span class="text-portfolio-primary font-bold">75%</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-portfolio-beige overflow-hidden border border-portfolio-sand/60">
+              <div class="h-full bg-gradient-to-r from-portfolio-secondary to-portfolio-primary rounded-full w-[75%]"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill 6: Mobile App -->
+        <div class="bg-white rounded-2xl p-6 border border-portfolio-sand shadow-sm hover:shadow-warm transition-all">
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-portfolio-beige text-portfolio-primary flex items-center justify-center">
+              <i data-lucide="smartphone" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-portfolio-beige text-portfolio-secondary">
+              Practical / Projects
+            </span>
+          </div>
+          <h3 class="text-lg font-heading font-bold text-portfolio-dark">Mobile App Development</h3>
+          <div class="text-xs font-medium text-portfolio-accent">Master App Development</div>
+          <p class="mt-2 text-portfolio-muted text-xs sm:text-sm leading-relaxed">
+            Mobile app interfaces, state management, bill-sharing workflows, and user experience for smartphones.
+          </p>
+          <div class="mt-6 pt-4 border-t border-portfolio-sand/60">
+            <div class="flex items-center justify-between text-xs font-semibold mb-1.5">
+              <span class="text-portfolio-secondary">Proficiency Indicator</span>
+              <span class="text-portfolio-primary font-bold">70%</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-portfolio-beige overflow-hidden border border-portfolio-sand/60">
+              <div class="h-full bg-gradient-to-r from-portfolio-secondary to-portfolio-primary rounded-full w-[70%]"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-12 p-4 rounded-2xl bg-portfolio-beige/70 border border-portfolio-sand flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-portfolio-primary text-white flex items-center justify-center shrink-0">
+            <i data-lucide="info" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-portfolio-dark">Honest Academic Representation</div>
+            <div class="text-[11px] text-portfolio-muted">Proficiency indicators are editable placeholders reflecting academic coursework and project implementations.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS PORTFOLIO ================= -->
+  <section id="projects" class="py-20 bg-portfolio-beige/30 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-portfolio-sand text-portfolio-primary text-xs font-bold tracking-wider uppercase mb-3 shadow-sm">
+          <i data-lucide="folder-git-2" class="w-3.5 h-3.5"></i>
+          <span>Featured Portfolio</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-portfolio-dark tracking-tight">
+          Academic & Practical <span class="text-portfolio-primary">Projects</span>
+        </h2>
+        <p class="mt-3 text-portfolio-muted text-sm sm:text-base">
+          Each project demonstrates my progression in programming fundamentals, object-oriented design, databases, and application development.
+        </p>
+        <div class="w-16 h-1 bg-portfolio-primary mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Project 1: Doc Signer Pro (Featured) -->
+        <div class="bg-white rounded-3xl overflow-hidden border border-portfolio-sand shadow-sm hover:shadow-warm-lg transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-full h-48 bg-gradient-to-br from-[#2A1C12] via-[#5C3A21] to-[#8C5A35] flex items-center justify-center p-6 relative">
+              <div class="w-11/12 max-w-xs bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 shadow-lg text-white">
+                <div class="flex items-center justify-between pb-2 mb-2 border-b border-white/10 text-xs">
+                  <span class="font-bold flex items-center gap-1.5">
+                    <i data-lucide="file-text" class="w-3.5 h-3.5 text-portfolio-accent"></i>
+                    Doc Signer Pro
+                  </span>
+                  <span class="px-2 py-0.5 rounded-full bg-sky-500/30 text-sky-200 font-bold text-[10px]">
+                    Microsoft Store
+                  </span>
+                </div>
+                <div class="space-y-1.5 text-[11px] text-white/80">
+                  <div class="flex justify-between items-center bg-black/25 p-2 rounded-xl">
+                    <span class="font-mono text-emerald-300 text-[11px] flex items-center gap-1 font-semibold">
+                      ✓ Cryptographically Signed
+                    </span>
+                    <span class="text-[10px] text-portfolio-sand">PDF • SHA-256</span>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute bottom-3 left-4 flex items-center gap-2 text-white/90 text-xs font-semibold">
+                <i data-lucide="shield-check" class="w-4 h-4 text-portfolio-accent"></i>
+                <span>Published on Microsoft Platform</span>
+              </div>
+            </div>
+
+            <div class="p-6 sm:p-8">
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-portfolio-secondary">Desktop & Security Software</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-portfolio-beige text-portfolio-primary font-bold text-[10px] border border-portfolio-sand">Published on Microsoft</span>
+              </div>
+              <h3 class="text-2xl font-heading font-bold text-portfolio-dark mb-3">Doc Signer Pro</h3>
+              <p class="text-portfolio-muted text-sm leading-relaxed mb-5">
+                A professional document signing and PDF authentication tool published on the Microsoft platform for secure digital signatures and certificate verification.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">C# / .NET</span>
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">PDF Security</span>
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">Digital Signatures</span>
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">Microsoft Store</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 sm:px-8 pb-6 pt-2 border-t border-portfolio-sand/60 flex items-center justify-between gap-3">
+            <button onclick="openProjectModal('doc-signer-pro')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-portfolio-primary text-white hover:bg-portfolio-dark transition-colors shadow-sm">
+              <i data-lucide="eye" class="w-4 h-4"></i>
+              <span>View Details</span>
+            </button>
+            <div class="flex items-center gap-2">
+              <a href="https://github.com/AftabAsghar-512" target="_blank" class="p-2.5 rounded-xl bg-portfolio-beige hover:bg-portfolio-sand text-portfolio-dark border border-portfolio-sand" title="GitHub">
+                <i data-lucide="github" class="w-4 h-4"></i>
+              </a>
+              <a href="https://apps.microsoft.com/" target="_blank" class="p-2.5 rounded-xl bg-portfolio-beige hover:bg-portfolio-sand text-portfolio-dark border border-portfolio-sand" title="Microsoft Store">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Candy Crush -->
+        <div class="bg-white rounded-3xl overflow-hidden border border-portfolio-sand shadow-sm hover:shadow-warm-lg transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-full h-48 bg-gradient-to-br from-[#4A2C16] via-[#6D4427] to-[#8C5A35] flex items-center justify-center p-6 relative">
+              <div class="grid grid-cols-4 gap-2.5 p-3 rounded-2xl bg-black/25 backdrop-blur-md border border-white/20 shadow-lg">
+                <div class="w-8 h-8 rounded-lg bg-red-500 flex items-center justify-center shadow-md animate-pulse">💎</div>
+                <div class="w-8 h-8 rounded-lg bg-amber-400 flex items-center justify-center shadow-md">⭐</div>
+                <div class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center shadow-md">🟢</div>
+                <div class="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center shadow-md">🔷</div>
+                <div class="w-8 h-8 rounded-lg bg-purple-500 flex items-center justify-center shadow-md">🍇</div>
+                <div class="w-8 h-8 rounded-lg bg-red-500 flex items-center justify-center shadow-md">💎</div>
+                <div class="w-8 h-8 rounded-lg bg-amber-400 flex items-center justify-center shadow-md">⭐</div>
+                <div class="w-8 h-8 rounded-lg bg-pink-500 flex items-center justify-center shadow-md">🍬</div>
+              </div>
+              <div class="absolute bottom-3 left-4 flex items-center gap-2 text-white/90 text-xs font-semibold">
+                <i data-lucide="gamepad-2" class="w-4 h-4 text-portfolio-accent"></i>
+                <span>C++ / OOP Logic Mechanics</span>
+              </div>
+            </div>
+
+            <div class="p-6 sm:p-8">
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-portfolio-secondary">Game & Logic Development</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-portfolio-beige text-portfolio-primary font-bold text-[10px] border border-portfolio-sand">PF & OOP Core</span>
+              </div>
+              <h3 class="text-2xl font-heading font-bold text-portfolio-dark mb-3">Candy Crush Game</h3>
+              <p class="text-portfolio-muted text-sm leading-relaxed mb-5">
+                Developed as a programming project using Programming Fundamentals (PF) and Object-Oriented Programming (OOP) concepts in C++. Demonstrates programming logic and game mechanics.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">C++</span>
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">OOP</span>
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">Data Structures</span>
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">Game Mechanics</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 sm:px-8 pb-6 pt-2 border-t border-portfolio-sand/60 flex items-center justify-between gap-3">
+            <button onclick="openProjectModal('candy-crush')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-portfolio-primary text-white hover:bg-portfolio-dark transition-colors shadow-sm">
+              <i data-lucide="eye" class="w-4 h-4"></i>
+              <span>View Details</span>
+            </button>
+            <a href="https://github.com/AftabAsghar-512" target="_blank" class="p-2.5 rounded-xl bg-portfolio-beige hover:bg-portfolio-sand text-portfolio-dark border border-portfolio-sand" title="GitHub (Placeholder)">
+              <i data-lucide="github" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2: Hotel Room Booking -->
+        <div class="bg-white rounded-3xl overflow-hidden border border-portfolio-sand shadow-sm hover:shadow-warm-lg transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-full h-48 bg-gradient-to-br from-[#3B2314] via-[#5C3A21] to-[#784C28] flex items-center justify-center p-6 relative">
+              <div class="w-11/12 max-w-xs bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 shadow-lg text-white">
+                <div class="flex items-center justify-between pb-2 mb-2 border-b border-white/10 text-xs">
+                  <span class="font-bold flex items-center gap-1.5">
+                    <i data-lucide="building-2" class="w-3.5 h-3.5 text-portfolio-accent"></i>
+                    Room Inventory #104
+                  </span>
+                  <span class="px-2 py-0.5 rounded-full bg-emerald-500/30 text-emerald-300 font-bold text-[10px]">Available</span>
+                </div>
+                <div class="flex justify-between text-[11px] text-white/80">
+                  <span>Deluxe King Room</span>
+                  <span class="font-semibold text-portfolio-accent">PKR 7,500</span>
+                </div>
+              </div>
+              <div class="absolute bottom-3 left-4 flex items-center gap-2 text-white/90 text-xs font-semibold">
+                <i data-lucide="building-2" class="w-4 h-4 text-portfolio-accent"></i>
+                <span>Database & Reservation Core</span>
+              </div>
+            </div>
+
+            <div class="p-6 sm:p-8">
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-portfolio-secondary">Database & Management</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-portfolio-beige text-portfolio-primary font-bold text-[10px] border border-portfolio-sand">Database Management</span>
+              </div>
+              <h3 class="text-2xl font-heading font-bold text-portfolio-dark mb-3">Hotel Room Booking System</h3>
+              <p class="text-portfolio-muted text-sm leading-relaxed mb-5">
+                A system designed to manage hotel room booking operations, reservation logs, inventory availability, and customer check-in/out records.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">Database Management</span>
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">SQL Queries</span>
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">OOP</span>
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">System Design</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 sm:px-8 pb-6 pt-2 border-t border-portfolio-sand/60 flex items-center justify-between gap-3">
+            <button onclick="openProjectModal('hotel-booking')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-portfolio-primary text-white hover:bg-portfolio-dark transition-colors shadow-sm">
+              <i data-lucide="eye" class="w-4 h-4"></i>
+              <span>View Details</span>
+            </button>
+            <a href="https://github.com/AftabAsghar-512" target="_blank" class="p-2.5 rounded-xl bg-portfolio-beige hover:bg-portfolio-sand text-portfolio-dark border border-portfolio-sand" title="GitHub (Placeholder)">
+              <i data-lucide="github" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3: Buddy Bills -->
+        <div class="bg-white rounded-3xl overflow-hidden border border-portfolio-sand shadow-sm hover:shadow-warm-lg transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-full h-48 bg-gradient-to-br from-[#5C3A21] via-[#8C5A35] to-[#B07D56] flex items-center justify-center p-6 relative">
+              <div class="w-64 bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/20 shadow-lg text-white">
+                <div class="flex items-center justify-between text-xs mb-2">
+                  <span class="font-bold">Trip Expense Split</span>
+                  <span class="text-emerald-300 font-bold">Calculated</span>
+                </div>
+                <div class="flex items-center justify-between bg-black/20 p-2 rounded-xl text-[11px]">
+                  <span>Total Bill:</span>
+                  <span class="font-bold text-portfolio-accent">Rs. 12,400</span>
+                </div>
+              </div>
+              <div class="absolute bottom-3 left-4 flex items-center gap-2 text-white/90 text-xs font-semibold">
+                <i data-lucide="smartphone" class="w-4 h-4 text-portfolio-accent"></i>
+                <span>Mobile Expense Tracker</span>
+              </div>
+            </div>
+
+            <div class="p-6 sm:p-8">
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-portfolio-secondary">Mobile Application</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-portfolio-beige text-portfolio-primary font-bold text-[10px] border border-portfolio-sand">Master App Dev</span>
+              </div>
+              <h3 class="text-2xl font-heading font-bold text-portfolio-dark mb-3">Buddy Bills Mobile App</h3>
+              <p class="text-portfolio-muted text-sm leading-relaxed mb-5">
+                A mobile application project created for managing shared bills, splitting group expenses equally or custom, and tracking settlement balances.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">Mobile App Dev</span>
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">UI/UX Design</span>
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">Split Algorithms</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 sm:px-8 pb-6 pt-2 border-t border-portfolio-sand/60 flex items-center justify-between gap-3">
+            <button onclick="openProjectModal('buddy-bills')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-portfolio-primary text-white hover:bg-portfolio-dark transition-colors shadow-sm">
+              <i data-lucide="eye" class="w-4 h-4"></i>
+              <span>View Details</span>
+            </button>
+            <a href="https://github.com/AftabAsghar-512" target="_blank" class="p-2.5 rounded-xl bg-portfolio-beige hover:bg-portfolio-sand text-portfolio-dark border border-portfolio-sand" title="GitHub (Placeholder)">
+              <i data-lucide="github" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 4: Car Game Using Unity -->
+        <div class="bg-white rounded-3xl overflow-hidden border border-portfolio-sand shadow-sm hover:shadow-warm-lg transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-full h-48 bg-gradient-to-br from-[#2A1C12] via-[#4A2C16] to-[#6D4427] flex items-center justify-center p-6 relative">
+              <div class="relative flex flex-col items-center justify-center">
+                <div class="w-20 h-20 rounded-full border-4 border-dashed border-portfolio-accent/60 flex items-center justify-center bg-black/30 backdrop-blur-sm shadow-xl">
+                  <i data-lucide="car" class="w-10 h-10 text-portfolio-accent"></i>
+                </div>
+                <div class="mt-2 px-3 py-1 rounded-full bg-black/40 text-[11px] font-mono text-emerald-400 font-bold border border-white/10">
+                  SPEED: 142 KM/H • LAP 1
+                </div>
+              </div>
+              <div class="absolute bottom-3 left-4 flex items-center gap-2 text-white/90 text-xs font-semibold">
+                <i data-lucide="car" class="w-4 h-4 text-portfolio-accent"></i>
+                <span>Unity Physics Engine (C#)</span>
+              </div>
+            </div>
+
+            <div class="p-6 sm:p-8">
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-portfolio-secondary">3D Game Development</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-portfolio-beige text-portfolio-primary font-bold text-[10px] border border-portfolio-sand">Unity Engine</span>
+              </div>
+              <h3 class="text-2xl font-heading font-bold text-portfolio-dark mb-3">Car Game Using Unity</h3>
+              <p class="text-portfolio-muted text-sm leading-relaxed mb-5">
+                A car game project developed using the Unity game engine featuring physics-based vehicle dynamics, steering mechanics, and responsive track obstacles.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">Unity</span>
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">C# Scripting</span>
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">RigidBody Physics</span>
+                <span class="px-2.5 py-1 rounded-md bg-portfolio-surface text-portfolio-dark text-xs font-medium border border-portfolio-sand">Level Design</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 sm:px-8 pb-6 pt-2 border-t border-portfolio-sand/60 flex items-center justify-between gap-3">
+            <button onclick="openProjectModal('car-game')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-portfolio-primary text-white hover:bg-portfolio-dark transition-colors shadow-sm">
+              <i data-lucide="eye" class="w-4 h-4"></i>
+              <span>View Details</span>
+            </button>
+            <a href="https://github.com/AftabAsghar-512" target="_blank" class="p-2.5 rounded-xl bg-portfolio-beige hover:bg-portfolio-sand text-portfolio-dark border border-portfolio-sand" title="GitHub (Placeholder)">
+              <i data-lucide="github" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= EDUCATION ================= -->
+  <section id="education" class="py-20 relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-portfolio-beige border border-portfolio-sand text-portfolio-primary text-xs font-bold tracking-wider uppercase mb-3 shadow-sm">
+          <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+          <span>Academic History</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-portfolio-dark tracking-tight">
+          Education <span class="text-portfolio-primary">& Qualifications</span>
+        </h2>
+        <p class="mt-3 text-portfolio-muted text-sm sm:text-base">
+          My formal learning path from secondary school to ongoing university studies in Computer Science.
+        </p>
+        <div class="w-16 h-1 bg-portfolio-primary mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- Vertical Timeline -->
+      <div class="relative border-l-2 border-[#8C5A35]/30 ml-4 md:ml-32 space-y-12">
+        
+        <!-- Degree 1 -->
+        <div class="relative pl-8 md:pl-10">
+          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-portfolio-primary text-white border-4 border-[#FDFBF7] flex items-center justify-center shadow-md animate-pulse">
+            <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+          </div>
+          <div class="hidden md:block absolute -left-36 top-2 text-right w-24">
+            <span class="text-xs font-bold px-2 py-1 rounded-lg bg-portfolio-primary text-white">Present</span>
+          </div>
+          <div class="rounded-3xl p-6 sm:p-8 border bg-white border-portfolio-primary/40 shadow-sm">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="md:hidden flex items-center gap-1.5 text-xs font-bold text-portfolio-secondary bg-portfolio-beige px-2.5 py-1 rounded-md">
+                <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                <span>Currently Pursuing (cont..)</span>
+              </div>
+              <span class="text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
+                In Progress
+              </span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-portfolio-dark mb-1">
+              Bachelors – Computer Science
+            </h3>
+            <div class="flex items-center gap-2 text-sm font-semibold text-portfolio-primary mb-4">
+              <i data-lucide="building" class="w-4 h-4"></i>
+              <span>Riphah International University</span>
+            </div>
+            <p class="text-portfolio-muted text-sm leading-relaxed">
+              Advancing knowledge in fundamental and modern computing topics including Object-Oriented Programming, Database Management Systems, Mobile App Engineering, and Software Design.
+            </p>
+            <div class="mt-4 pt-3 border-t border-portfolio-sand/60 flex items-center gap-2 text-xs font-semibold text-portfolio-secondary">
+              <i data-lucide="award" class="w-4 h-4 text-portfolio-accent"></i>
+              <span>Active Undergraduate Degree</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Degree 2 -->
+        <div class="relative pl-8 md:pl-10">
+          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-portfolio-secondary text-white border-4 border-[#FDFBF7] flex items-center justify-center shadow-md">
+            <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+          </div>
+          <div class="hidden md:block absolute -left-36 top-2 text-right w-24">
+            <span class="text-xs font-bold px-2 py-1 rounded-lg bg-portfolio-beige text-portfolio-dark border border-portfolio-sand">2021–2023</span>
+          </div>
+          <div class="rounded-3xl p-6 sm:p-8 border bg-white/90 border-portfolio-sand shadow-sm">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="md:hidden flex items-center gap-1.5 text-xs font-bold text-portfolio-secondary bg-portfolio-beige px-2.5 py-1 rounded-md">
+                <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                <span>2021 – 2023</span>
+              </div>
+              <span class="text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-portfolio-beige text-portfolio-muted border border-portfolio-sand">
+                Completed
+              </span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-portfolio-dark mb-1">
+              FSc – Pre-Engineering
+            </h3>
+            <div class="flex items-center gap-2 text-sm font-semibold text-portfolio-primary mb-4">
+              <i data-lucide="building" class="w-4 h-4"></i>
+              <span>DI Khan Board</span>
+            </div>
+            <p class="text-portfolio-muted text-sm leading-relaxed">
+              Completed higher secondary education with strong emphasis on Mathematics, Physics, and analytical reasoning that laid the cornerstone for computer science studies.
+            </p>
+            <div class="mt-4 pt-3 border-t border-portfolio-sand/60 flex items-center gap-2 text-xs font-semibold text-portfolio-secondary">
+              <i data-lucide="award" class="w-4 h-4 text-portfolio-accent"></i>
+              <span>Pre-Engineering Foundation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Degree 3 -->
+        <div class="relative pl-8 md:pl-10">
+          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-portfolio-secondary text-white border-4 border-[#FDFBF7] flex items-center justify-center shadow-md">
+            <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+          </div>
+          <div class="hidden md:block absolute -left-36 top-2 text-right w-24">
+            <span class="text-xs font-bold px-2 py-1 rounded-lg bg-portfolio-beige text-portfolio-dark border border-portfolio-sand">2019–2021</span>
+          </div>
+          <div class="rounded-3xl p-6 sm:p-8 border bg-white/90 border-portfolio-sand shadow-sm">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="md:hidden flex items-center gap-1.5 text-xs font-bold text-portfolio-secondary bg-portfolio-beige px-2.5 py-1 rounded-md">
+                <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                <span>2019 – 2021</span>
+              </div>
+              <span class="text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-portfolio-beige text-portfolio-muted border border-portfolio-sand">
+                Completed
+              </span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-portfolio-dark mb-1">
+              Matric – Science
+            </h3>
+            <div class="flex items-center gap-2 text-sm font-semibold text-portfolio-primary mb-4">
+              <i data-lucide="building" class="w-4 h-4"></i>
+              <span>DI Khan Board</span>
+            </div>
+            <p class="text-portfolio-muted text-sm leading-relaxed">
+              Completed secondary school certification in Science subjects with solid academic performance.
+            </p>
+            <div class="mt-4 pt-3 border-t border-portfolio-sand/60 flex items-center gap-2 text-xs font-semibold text-portfolio-secondary">
+              <i data-lucide="award" class="w-4 h-4 text-portfolio-accent"></i>
+              <span>Secondary School Certificate</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= HOBBIES & INTERESTS ================= -->
+  <section id="hobbies" class="py-20 bg-portfolio-beige/40 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-portfolio-sand text-portfolio-primary text-xs font-bold tracking-wider uppercase mb-3 shadow-sm">
+          <i data-lucide="heart" class="w-3.5 h-3.5 text-portfolio-primary"></i>
+          <span>Beyond Code</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-portfolio-dark tracking-tight">
+          Hobbies & <span class="text-portfolio-primary">Personal Interests</span>
+        </h2>
+        <p class="mt-3 text-portfolio-muted text-sm sm:text-base">
+          Activities that keep me energized, creative, and physically balanced.
+        </p>
+        <div class="w-16 h-1 bg-portfolio-primary mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        
+        <div class="bg-white rounded-3xl p-6 border border-portfolio-sand shadow-sm hover:shadow-warm transition-all transform hover:-translate-y-1 flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-2xl bg-portfolio-beige text-portfolio-primary flex items-center justify-center mb-5 shadow-sm">
+            <i data-lucide="code-xml" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-lg font-heading font-bold text-portfolio-dark mb-1">Coding</h3>
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-portfolio-beige text-portfolio-secondary mb-3">Technical Passion</span>
+          <p class="text-portfolio-muted text-xs leading-relaxed">Tinkering with algorithms, debugging challenges, and exploring new frameworks.</p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 border border-portfolio-sand shadow-sm hover:shadow-warm transition-all transform hover:-translate-y-1 flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-2xl bg-portfolio-beige text-portfolio-primary flex items-center justify-center mb-5 shadow-sm">
+            <i data-lucide="bike" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-lg font-heading font-bold text-portfolio-dark mb-1">Cycling</h3>
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-portfolio-beige text-portfolio-secondary mb-3">Outdoor & Fitness</span>
+          <p class="text-portfolio-muted text-xs leading-relaxed">Maintaining health, focus, and mental clarity through regular cycling trips.</p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 border border-portfolio-sand shadow-sm hover:shadow-warm transition-all transform hover:-translate-y-1 flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-2xl bg-portfolio-beige text-portfolio-primary flex items-center justify-center mb-5 shadow-sm">
+            <i data-lucide="palette" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-lg font-heading font-bold text-portfolio-dark mb-1">Painting</h3>
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-portfolio-beige text-portfolio-secondary mb-3">Creative Expression</span>
+          <p class="text-portfolio-muted text-xs leading-relaxed">Expressing creativity, color balance, and spatial imagination with traditional art.</p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 border border-portfolio-sand shadow-sm hover:shadow-warm transition-all transform hover:-translate-y-1 flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-2xl bg-portfolio-beige text-portfolio-primary flex items-center justify-center mb-5 shadow-sm">
+            <i data-lucide="activity" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-lg font-heading font-bold text-portfolio-dark mb-1">Badminton</h3>
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-portfolio-beige text-portfolio-secondary mb-3">Active Sport</span>
+          <p class="text-portfolio-muted text-xs leading-relaxed">Enjoying fast-paced reflex training, agile footwork, and energetic matches.</p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 border border-portfolio-sand shadow-sm hover:shadow-warm transition-all transform hover:-translate-y-1 flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-2xl bg-portfolio-beige text-portfolio-primary flex items-center justify-center mb-5 shadow-sm">
+            <i data-lucide="trophy" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-lg font-heading font-bold text-portfolio-dark mb-1">Cricket</h3>
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-portfolio-beige text-portfolio-secondary mb-3">Team Sport</span>
+          <p class="text-portfolio-muted text-xs leading-relaxed">Valuing teamwork, strategic game awareness, sportsmanship, and enthusiasm.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CONTACT SECTION ================= -->
+  <section id="contact" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-portfolio-beige border border-portfolio-sand text-portfolio-primary text-xs font-bold tracking-wider uppercase mb-3 shadow-sm">
+          <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+          <span>Get In Touch</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-portfolio-dark tracking-tight">
+          Let's Connect & <span class="text-portfolio-primary">Collaborate</span>
+        </h2>
+        <p class="mt-3 text-portfolio-muted text-sm sm:text-base">
+          Feel free to reach out for software projects, internship opportunities, or academic discussions.
+        </p>
+        <div class="w-16 h-1 bg-portfolio-primary mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Left Column -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-portfolio-sand shadow-sm space-y-6">
+            <h3 class="text-xl font-heading font-bold text-portfolio-dark">Contact Information</h3>
+            <p class="text-portfolio-muted text-xs sm:text-sm">Reach me directly via phone, WhatsApp, or email:</p>
+
+            <div class="space-y-4">
+              <div class="p-4 rounded-2xl bg-portfolio-surface border border-portfolio-sand flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-portfolio-beige text-portfolio-primary flex items-center justify-center shrink-0">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <span class="text-[10px] uppercase font-bold text-portfolio-secondary block">Phone / WhatsApp</span>
+                    <a href="tel:03437181456" class="text-sm font-bold text-portfolio-dark hover:text-portfolio-primary">0343-7181456</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-portfolio-surface border border-portfolio-sand flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3 overflow-hidden">
+                  <div class="w-10 h-10 rounded-xl bg-portfolio-beige text-portfolio-primary flex items-center justify-center shrink-0">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                  </div>
+                  <div class="truncate">
+                    <span class="text-[10px] uppercase font-bold text-portfolio-secondary block">Email Address</span>
+                    <a href="mailto:muhammadaftabasghar@gmail.com" class="text-xs sm:text-sm font-bold text-portfolio-dark hover:text-portfolio-primary truncate block">muhammadaftabasghar@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-portfolio-surface border border-portfolio-sand flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-portfolio-beige text-portfolio-primary flex items-center justify-center shrink-0">
+                  <i data-lucide="map-pin" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span class="text-[10px] uppercase font-bold text-portfolio-secondary block">Residential Location</span>
+                  <div class="text-xs sm:text-sm font-semibold text-portfolio-dark">Jhoke Malkani, Tehsil Paharpur, Dist DIKhan</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-portfolio-sand">
+              <div class="text-xs font-bold uppercase tracking-wider text-portfolio-secondary mb-3">Developer Profiles</div>
+              <div class="grid grid-cols-2 gap-3">
+                <a href="https://github.com/AftabAsghar-512" target="_blank" class="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-portfolio-surface border border-portfolio-sand hover:bg-portfolio-beige text-portfolio-dark text-xs font-bold">
+                  <i data-lucide="github" class="w-4 h-4"></i>
+                  <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/muhammad-aftab-asghar-b111a02bb" target="_blank" class="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-portfolio-surface border border-portfolio-sand hover:bg-portfolio-beige text-portfolio-dark text-xs font-bold">
+                  <i data-lucide="linkedin" class="w-4 h-4 text-[#0077b5]"></i>
+                  <span>LinkedIn</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Form -->
+        <div class="lg:col-span-7">
+          <div class="bg-white rounded-3xl p-6 sm:p-10 border border-portfolio-sand shadow-sm">
+            <h3 class="text-2xl font-heading font-bold text-portfolio-dark mb-2">Send a Message</h3>
+            <p class="text-portfolio-muted text-xs sm:text-sm mb-6">Fill in the form below with your project details or inquiries.</p>
+
+            <form id="contact-form" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold uppercase tracking-wider text-portfolio-dark mb-1.5">Your Name *</label>
+                  <input type="text" id="form-name" required placeholder="e.g. Ali Ahmed" class="w-full px-4 py-3 rounded-xl bg-portfolio-surface border border-portfolio-sand text-sm focus:outline-none focus:ring-2 focus:ring-portfolio-primary/20">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold uppercase tracking-wider text-portfolio-dark mb-1.5">Your Email *</label>
+                  <input type="email" id="form-email" required placeholder="e.g. ali@example.com" class="w-full px-4 py-3 rounded-xl bg-portfolio-surface border border-portfolio-sand text-sm focus:outline-none focus:ring-2 focus:ring-portfolio-primary/20">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-portfolio-dark mb-1.5">Subject *</label>
+                <input type="text" id="form-subject" required placeholder="e.g. Internship Opportunity / Collaboration" class="w-full px-4 py-3 rounded-xl bg-portfolio-surface border border-portfolio-sand text-sm focus:outline-none focus:ring-2 focus:ring-portfolio-primary/20">
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-portfolio-dark mb-1.5">Message *</label>
+                <textarea id="form-message" rows="4" required placeholder="Hello Aftab, I reviewed your CV and portfolio..." class="w-full px-4 py-3 rounded-xl bg-portfolio-surface border border-portfolio-sand text-sm focus:outline-none focus:ring-2 focus:ring-portfolio-primary/20"></textarea>
+              </div>
+
+              <div class="pt-2">
+                <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-portfolio-primary text-white hover:bg-portfolio-dark shadow-warm transition-all">
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                  <span>Send Message</span>
+                </button>
+                <span class="block sm:inline-block sm:ml-4 mt-2 sm:mt-0 text-[11px] text-portfolio-muted">
+                  Client validated. Opens email client directly.
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-portfolio-dark text-white pt-14 pb-8 border-t border-[#5C3A21]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-white/10 items-center">
+        <div class="md:col-span-5 space-y-2">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-portfolio-accent text-portfolio-dark flex items-center justify-center font-bold text-sm">AA</div>
+            <span class="font-heading font-extrabold text-xl text-white tracking-tight">Aftab Asghar</span>
+          </div>
+          <p class="text-white/70 text-xs sm:text-sm max-w-sm">
+            Undergraduate Computer Science Student at Riphah International University passionate about building practical software.
+          </p>
+        </div>
+
+        <div class="md:col-span-5">
+          <nav class="flex flex-wrap gap-x-6 gap-y-2 text-xs font-semibold text-white/80">
+            <a href="#home" class="hover:text-portfolio-accent">Home</a>
+            <a href="#about" class="hover:text-portfolio-accent">About</a>
+            <a href="#skills" class="hover:text-portfolio-accent">Skills</a>
+            <a href="#projects" class="hover:text-portfolio-accent">Projects</a>
+            <a href="#education" class="hover:text-portfolio-accent">Education</a>
+            <a href="#hobbies" class="hover:text-portfolio-accent">Hobbies</a>
+            <a href="#contact" class="hover:text-portfolio-accent">Contact</a>
+          </nav>
+        </div>
+
+        <div class="md:col-span-2 flex justify-start md:justify-end">
+          <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="p-3 rounded-xl bg-white/10 hover:bg-portfolio-accent hover:text-portfolio-dark text-white">
+            <i data-lucide="arrow-up" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
+        <div>&copy; <span id="year">2026</span> Aftab Asghar. All rights reserved.</div>
+        <div>Crafted with <strong class="text-portfolio-accent">React, Tailwind & Lucide</strong></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= PROJECT DETAILS MODAL ================= -->
+  <div id="project-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+    <div class="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-portfolio-sand overflow-hidden my-8">
+      <div id="modal-header" class="p-6 bg-portfolio-primary text-white relative">
+        <button onclick="closeProjectModal()" class="absolute top-5 right-5 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+        <span id="modal-badge" class="inline-block px-3 py-1 rounded-full bg-white/20 text-[11px] font-bold uppercase tracking-wider mb-2">PF & OOP</span>
+        <h3 id="modal-title" class="text-2xl font-heading font-extrabold">Project Title</h3>
+        <p id="modal-category" class="text-xs text-white/80">Category</p>
+      </div>
+
+      <div class="p-6 sm:p-8 space-y-5 max-h-[60vh] overflow-y-auto">
+        <div id="modal-academic" class="p-3 rounded-xl bg-portfolio-beige text-portfolio-primary text-xs font-semibold">
+          Academic Project
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-portfolio-secondary mb-1">Project Description</h4>
+          <p id="modal-desc" class="text-sm text-portfolio-dark leading-relaxed">Description goes here.</p>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-portfolio-secondary mb-2">Key Features</h4>
+          <ul id="modal-features" class="space-y-1.5 text-xs text-portfolio-dark"></ul>
+        </div>
+        <div class="pt-4 border-t border-portfolio-sand flex flex-wrap items-center gap-3">
+          <a href="https://github.com/AftabAsghar-512" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs uppercase bg-portfolio-primary text-white hover:bg-portfolio-dark">
+            <i data-lucide="github" class="w-4 h-4"></i>
+            <span>View on GitHub</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="p-4 bg-portfolio-beige/60 border-t border-portfolio-sand flex justify-end">
+        <button onclick="closeProjectModal()" class="px-5 py-2 rounded-xl text-xs font-bold text-portfolio-dark hover:bg-portfolio-sand">Close Details</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= CURRICULUM VITAE MODAL ================= -->
+  <div id="cv-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/70 backdrop-blur-sm">
+    <div class="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl border border-portfolio-sand overflow-hidden my-6">
+      <div class="p-4 bg-portfolio-beige border-b border-portfolio-sand flex items-center justify-between no-print">
+        <div class="flex items-center gap-2">
+          <span class="font-heading font-bold text-sm text-portfolio-dark">Curriculum Vitae Preview</span>
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-portfolio-primary text-white">Official Layout</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-portfolio-primary text-white text-xs font-bold hover:bg-portfolio-dark">
+            <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+            <span>Print / Save as PDF</span>
+          </button>
+          <button onclick="closeCVModal()" class="p-1.5 rounded-lg hover:bg-portfolio-sand text-portfolio-dark">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="p-6 sm:p-10 max-h-[80vh] overflow-y-auto bg-[#FAF8F5]">
+        <div class="max-w-3xl mx-auto bg-white shadow-md border border-portfolio-sand rounded-xl overflow-hidden">
+          <div class="grid grid-cols-1 md:grid-cols-12 border-b border-portfolio-sand">
+            <div class="md:col-span-7 p-6 sm:p-8 border-b md:border-b-0 md:border-r border-portfolio-sand">
+              <h1 class="text-3xl sm:text-4xl font-heading font-extrabold text-[#5C3A21] tracking-tight uppercase">AFTAB ASGHAR</h1>
+              <div class="w-20 h-0.5 bg-[#5C3A21] mt-2 mb-3"></div>
+              <div class="text-xs font-bold tracking-[0.25em] text-portfolio-dark uppercase">UNDER GRADUATE</div>
+            </div>
+            <div class="md:col-span-5 p-6 bg-[#FAF7F2] flex flex-col justify-center space-y-2.5 text-xs">
+              <div class="flex items-center gap-2 text-portfolio-dark font-bold"><i data-lucide="phone" class="w-4 h-4 text-[#5C3A21]"></i> 0343-7181456</div>
+              <div class="flex items-center gap-2 text-portfolio-dark"><i data-lucide="mail" class="w-4 h-4 text-[#5C3A21]"></i> muhammadaftabasghar@gmail.com</div>
+              <div class="flex items-start gap-2 text-portfolio-dark"><i data-lucide="map-pin" class="w-4 h-4 text-[#5C3A21]"></i> Jhoke Malkani tehsil paharpur dist DIKhan</div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12">
+            <div class="md:col-span-5 bg-[#5C3A21] text-white p-6 sm:p-8 space-y-6">
+              <div class="w-32 h-32 rounded-full border-4 border-white/80 mx-auto overflow-hidden bg-[#784C28] flex items-center justify-center shadow-lg">
+                <span class="font-heading font-extrabold text-3xl text-white">AA</span>
+              </div>
+              <div>
+                <h2 class="text-xs font-bold uppercase tracking-[0.2em] border-b border-white/30 pb-1 mb-2 text-portfolio-accent">Profile</h2>
+                <p class="text-[11px] leading-relaxed text-white/90">
+                  Hello! My name is Aftab, and I am an enthusiastic and motivated under graduate in a Bachelor of Science in Computer Science. Seeking to leverage my strong academic foundation, project experiences, and passion for software development to contribute to a dynamic and innovative team.
+                </p>
+              </div>
+              <div>
+                <h2 class="text-xs font-bold uppercase tracking-[0.2em] border-b border-white/30 pb-1 mb-3 text-portfolio-accent">Education</h2>
+                <div class="space-y-3 text-xs">
+                  <div>
+                    <div class="font-bold text-white text-[11px]">Bachelors - Computer Science (cont..)</div>
+                    <div class="text-[10px] text-portfolio-sand italic">from Riphah International University</div>
+                  </div>
+                  <div>
+                    <div class="font-bold text-white text-[11px]">Fsc - Pre Engineering (2021-2023)</div>
+                    <div class="text-[10px] text-portfolio-sand italic">from DI Khan Board</div>
+                  </div>
+                  <div>
+                    <div class="font-bold text-white text-[11px]">Matric - Science (2019-2021)</div>
+                    <div class="text-[10px] text-portfolio-sand italic">from DI Khan Board</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="md:col-span-7 p-6 sm:p-8 space-y-6 bg-white">
+              <div>
+                <h2 class="text-xs font-bold uppercase tracking-[0.2em] border-b-2 border-[#5C3A21] pb-1 mb-3 text-portfolio-dark">Skills</h2>
+                <ul class="space-y-1.5 text-xs text-portfolio-dark">
+                  <li>• C++ Programming</li>
+                  <li>• Java Programming</li>
+                  <li>• Python Programming</li>
+                  <li>• Web Development (HTML, CSS)</li>
+                  <li>• Database Management</li>
+                  <li>• Mobile App Development (Master App Development)</li>
+                </ul>
+              </div>
+
+              <div>
+                <h2 class="text-xs font-bold uppercase tracking-[0.2em] border-b-2 border-[#5C3A21] pb-1 mb-3 text-portfolio-dark">Projects</h2>
+                <ul class="space-y-2 text-xs text-portfolio-dark">
+                  <li><strong>• Doc Signer Pro</strong> (Published on Microsoft)</li>
+                  <li><strong>• Candy Crush Game</strong> (PF & OOP)</li>
+                  <li><strong>• Hotel Room Booking System</strong> (Database Management)</li>
+                  <li><strong>• Buddy Bills Mobile App</strong> (Expense Tracker)</li>
+                  <li><strong>• Car Game using Unity</strong> (Game Physics & C#)</li>
+                </ul>
+              </div>
+
+              <div>
+                <h2 class="text-xs font-bold uppercase tracking-[0.2em] border-b-2 border-[#5C3A21] pb-1 mb-3 text-portfolio-dark">Hobby & Interests</h2>
+                <div class="flex flex-wrap gap-2 text-xs">
+                  <span class="px-3 py-1 border border-portfolio-sand rounded bg-[#FAF8F5]">Coding</span>
+                  <span class="px-3 py-1 border border-portfolio-sand rounded bg-[#FAF8F5]">Cycling</span>
+                  <span class="px-3 py-1 border border-portfolio-sand rounded bg-[#FAF8F5]">Painting</span>
+                  <span class="px-3 py-1 border border-portfolio-sand rounded bg-[#FAF8F5]">Badminton</span>
+                  <span class="px-3 py-1 border border-portfolio-sand rounded bg-[#FAF8F5]">Cricket</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    lucide.createIcons();
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // Photo Upload Preview
+    const photoInput = document.getElementById('photo-input');
+    const photoContainer = document.getElementById('photo-container');
+    photoInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const url = URL.createObjectURL(file);
+        photoContainer.innerHTML = `
+          <img src="${url}" alt="Aftab Asghar" class="w-full h-full object-cover object-top rounded-xl">
+          <label class="absolute bottom-2 right-2 bg-black/60 text-white p-2 rounded-lg cursor-pointer hover:bg-black/80">
+            <i data-lucide="camera" class="w-4 h-4"></i>
+            <input type="file" id="photo-input-sub" accept="image/*" class="hidden">
+          </label>
+        `;
+        lucide.createIcons();
+        document.getElementById('photo-input-sub').addEventListener('change', (e2) => {
+          if (e2.target.files[0]) {
+            photoContainer.querySelector('img').src = URL.createObjectURL(e2.target.files[0]);
+          }
+        });
+      }
+    });
+
+    // Project Details Modal Data
+    const projectDetails = {
+      'doc-signer-pro': {
+        title: 'Doc Signer Pro',
+        badge: 'Published on Microsoft',
+        category: 'Desktop & Security Software',
+        academic: 'Published Production Application on Microsoft Platform',
+        desc: 'A professional document signing and PDF authentication tool published on the Microsoft platform. Designed to facilitate digital signatures, tamper verification, cryptographic certificate binding, and smooth PDF handling for students, professionals, and enterprises.',
+        features: [
+          'Official publication and verification on the Microsoft Platform / Store',
+          'Cryptographic digital signature creation & certificate validation',
+          'Multi-page PDF viewing, stamp placement, and document audit trail',
+          'Clean modern user interface with fast document processing'
+        ]
+      },
+      'candy-crush': {
+        title: 'Candy Crush Game',
+        badge: 'PF & OOP Core',
+        category: 'Game & Logic Development',
+        academic: 'Academic Project for Programming Fundamentals & OOP Coursework',
+        desc: 'A logic-driven game simulation inspired by the classic match-3 mechanics. The project demonstrates modular software design, 2D matrix state representation, dynamic element swapping, boundary checks, and algorithmic score tracking in C++.',
+        features: [
+          'Dynamic 2D grid matrix state rendering',
+          'Valid horizontal and vertical match-3 detection algorithms',
+          'Board cascading and replacement of matched pieces',
+          'Player moves counter, score accumulation, and game-over states'
+        ]
+      },
+      'hotel-booking': {
+        title: 'Hotel Room Booking System',
+        badge: 'Database Management',
+        category: 'Database & Management System',
+        academic: 'Database Management & Software Architecture Academic Project',
+        desc: 'Designed to handle room inventory, availability verification, reservation workflows, customer check-in/check-out logs, and billing calculations. Emphasizes data consistency and user-friendly administrative workflows.',
+        features: [
+          'Room category listing (Deluxe, Standard, Suite) with price indices',
+          'Real-time room availability status & reservation logs',
+          'Guest profile record management and contact archiving',
+          'Automated bill generation and checkout invoice summary'
+        ]
+      },
+      'buddy-bills': {
+        title: 'Buddy Bills Mobile App',
+        badge: 'Master App Development',
+        category: 'Mobile Application',
+        academic: 'Mobile Application Development Project',
+        desc: 'Created to eliminate the friction of shared expenses among roommates, friends, and project groups. Users can log group transactions, automatically divide payments fairly, and view net balances indicating who owes whom.',
+        features: [
+          'Group expense creation and itemized bill entry',
+          'Equal and custom split calculation logic',
+          'Live balance summary: "You are owed" vs "You owe"',
+          'History feed of recent transactions and shared payments'
+        ]
+      },
+      'car-game': {
+        title: 'Car Game Using Unity',
+        badge: 'Unity Engine',
+        category: '3D Game Development',
+        academic: 'Interactive Media & Unity Game Development Project',
+        desc: 'Developed in the Unity game engine leveraging C# scripting. Implements vehicle physics, wheel colliders, steering torque, responsive braking, obstacle collisions, lap timing, and responsive audio-visual feedback.',
+        features: [
+          'Physics-based driving controls (acceleration, braking, drifting)',
+          'Dynamic obstacle collision detection and boundary triggers',
+          'Camera follow system with smooth dampening',
+          'Heads-Up Display (HUD) showing speed, timer, and score'
+        ]
+      }
+    };
+
+    function openProjectModal(id) {
+      const p = projectDetails[id];
+      if (!p) return;
+      document.getElementById('modal-title').textContent = p.title;
+      document.getElementById('modal-badge').textContent = p.badge;
+      document.getElementById('modal-category').textContent = p.category;
+      document.getElementById('modal-academic').textContent = p.academic;
+      document.getElementById('modal-desc').textContent = p.desc;
+      const featsEl = document.getElementById('modal-features');
+      featsEl.innerHTML = p.features.map(f => `<li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#5C3A21]"></i> <span>${f}</span></li>`).join('');
+      document.getElementById('project-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeProjectModal() {
+      document.getElementById('project-modal').classList.add('hidden');
+    }
+
+    // CV Modal
+    function openCVModal() {
+      document.getElementById('cv-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeCVModal() {
+      document.getElementById('cv-modal').classList.add('hidden');
+    }
+
+    // Contact Form Action
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('form-name').value;
+      const email = document.getElementById('form-email').value;
+      const subject = document.getElementById('form-subject').value;
+      const msg = document.getElementById('form-message').value;
+
+      const body = encodeURIComponent(`Hello Aftab,\n\n${msg}\n\nBest regards,\n${name} (${email})`);
+      const mailtoUrl = `mailto:muhammadaftabasghar@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      window.location.href = mailtoUrl;
+    });
+  </script>
+</body>
+</html>

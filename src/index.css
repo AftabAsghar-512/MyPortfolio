@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  body {
+    background-color: #FDFBF7;
+    color: #3B2314;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F4EDE4;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #8C5A35;
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5C3A21;
+  }
+}
+
+/* Glassmorphism & decorative patterns */
+.glass-nav {
+  background: rgba(253, 251, 247, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dot-pattern {
+  background-image: radial-gradient(#5C3A21 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  opacity: 0.15;
+}
+
+/* Print styles for CV download / print preview */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
