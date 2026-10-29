@@ -1,6 +1,7 @@
 import React from 'react';
 import { X, Printer, Download, Phone, Mail, MapPin, GraduationCap, Code, Briefcase, Award } from 'lucide-react';
 import { personalInfo, educationData, skillsData, projectsData, hobbiesData } from '../data/portfolioData';
+import profilePhoto from '../assets/profile.jpg';
 
 export default function CVModal({ isOpen, onClose }) {
   if (!isOpen) return null;
@@ -100,7 +101,7 @@ export default function CVModal({ isOpen, onClose }) {
                 
                 {/* Profile Avatar Frame */}
                 <div className="w-32 h-32 rounded-full border-4 border-white/80 mx-auto overflow-hidden bg-[#784C28] flex items-center justify-center shadow-lg">
-                  <span className="font-heading font-extrabold text-3xl text-white">AA</span>
+                  <img src={profilePhoto} alt={personalInfo.name} className="w-full h-full object-cover object-[center_18%]" />
                 </div>
 
                 {/* Profile Narrative */}

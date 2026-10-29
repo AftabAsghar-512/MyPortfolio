@@ -11,7 +11,8 @@ import {
   Copy,
   Check,
   MessageSquare,
-  Sparkles
+  Sparkles,
+  MessageCircle
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
@@ -150,7 +151,7 @@ export default function Contact() {
                   <button
                     onClick={() => handleCopy(personalInfo.phone, 'phone')}
                     className="p-2 rounded-lg bg-white hover:bg-portfolio-beige text-portfolio-dark border border-portfolio-sand text-xs transition-colors"
-                    title="Copy Phone Number"
+                    title="Copy Phone Number" aria-label="Copy Phone Number"
                   >
                     {copiedPhone ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
                   </button>
@@ -226,6 +227,15 @@ export default function Contact() {
                     <span>LinkedIn</span>
                   </a>
                 </div>
+                <a
+                  href="https://wa.me/923437181456?text=Hello%20Aftab,%20I%20reviewed%20your%20portfolio%20and%20would%20like%20to%20connect!"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-3 w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-sm"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Chat Directly on WhatsApp</span>
+                </a>
                 <div className="text-[10px] text-portfolio-muted mt-2 text-center">
                   Official developer profiles on GitHub & LinkedIn
                 </div>
